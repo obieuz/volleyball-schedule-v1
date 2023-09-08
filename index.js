@@ -1,6 +1,8 @@
-const http=require('http').createServer();
-
-const io=require('socket.io')(http);
+const express = require('express');
+const cors=require('cors');
+const app=express();
+const io=require('socket.io')(app);
+app.use(cors());
 let data;
     data='{"week":[]}'
     data=JSON.parse(data);
@@ -30,4 +32,4 @@ io.on('connection', (socket)=>{
         io.emit('message',message);
     })
 })
-http.listen(10000);
+app.listen(10000);
