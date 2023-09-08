@@ -1,8 +1,6 @@
 const http=require('http').createServer();
 
-const io=require('socket.io')(http,{
-    cors: {origin:"*"}
-});
+const io=require('socket.io')(http);
 let data;
     data='{"week":[]}'
     data=JSON.parse(data);
